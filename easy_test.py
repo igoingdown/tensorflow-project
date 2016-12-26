@@ -25,6 +25,8 @@ with tf.Session() as sess:
 if __name__ == "__main__":
     print "hello world!"
     s = ["3", "4", "6"]
-    a = np.core.defchararray.isnumeric(s)
-    print a
+    with open("test_file.txt") as f:
+        lines = f.readlines()
+        print lines
+
 
