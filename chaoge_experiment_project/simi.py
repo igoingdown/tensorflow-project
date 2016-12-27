@@ -1,4 +1,10 @@
-#coding=utf-8
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 
 from helper import *
 import os

@@ -1,10 +1,13 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
 import sys
-import zmx_params as params
-from time_wrapper import *
-from zmx_virtuoso_api import *
-import cPickle
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
+from zmx_virtuoso_api import *
+import cPickle
+
 
 
 def load_pickle(name):

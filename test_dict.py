@@ -1,6 +1,11 @@
-#coding-utf-8
-from time_wrapper import *
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+from time_wrapper import *
 
 @time_recorder
 def fool(m, n):

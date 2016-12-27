@@ -1,7 +1,8 @@
-# -*-coding:utf-8 -*-
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
 
 import sys
-import params
+import zmx_params as params
 import time
 import cPickle
 import re

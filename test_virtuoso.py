@@ -1,8 +1,9 @@
+#!/usr/bin/python
 # -*- coding:utf-8 -*-
-
 import sys
-import urllib, json
-import requests
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 from bs4 import BeautifulSoup
 import re
 

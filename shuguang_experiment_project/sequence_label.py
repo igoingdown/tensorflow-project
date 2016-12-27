@@ -1,11 +1,15 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 import io
 import zmx_params as params
 #import traceback
 import cPickle
 import re
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
 from nltk import word_tokenize
 import zmx_virtuoso_api
 

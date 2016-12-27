@@ -1,9 +1,15 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
 import tensorflow as tf
 import numpy as np
 
 x_data = np.random.rand(100)
 y_data = 0.87 * x_data + 0.05
-
 
 graph = tf.Graph()
 with graph.as_default():

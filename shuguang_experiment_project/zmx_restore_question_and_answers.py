@@ -1,9 +1,10 @@
-# -*-coding:utf-8 -*-
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
 
-import sys
 import zmx_params as params
 from time_wrapper import *
 import cPickle
+import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 

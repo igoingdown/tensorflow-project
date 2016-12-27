@@ -1,4 +1,10 @@
+#!/usr/bin/python
 # -*- coding:utf-8 -*-
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 # ref_blog:http://www.open-open.com/home/space-5679-do-blog-id-3247.html
 
 import Queue

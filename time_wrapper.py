@@ -1,5 +1,11 @@
-import time
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+import time
 
 def time_recorder(func):
     def wrapper(*args, **kwargs):

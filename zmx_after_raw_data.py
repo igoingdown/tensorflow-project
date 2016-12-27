@@ -1,3 +1,11 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
 class Textloader(object):
     def __init__(self):
         self.nl_word_oov_begin = 10
