@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+cd /Users/zhaomingxing/PycharmProjects/test_tensor
 git status >> /dev/null 2>&1
 git add . >> /dev/null 2>&1
 s_1=`date +%F`

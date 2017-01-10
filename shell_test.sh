@@ -20,3 +20,4 @@ else
     echo -e "\nwe need a github repository as first arg!"
 fi
 echo `git remote`
+
