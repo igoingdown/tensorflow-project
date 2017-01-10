@@ -11,9 +11,12 @@ echo $s_1
 echo $s_2
 echo "time is: $s_1 $s_2"
 
-if [ $1 == "start" ]; then
+remote_origin=`git remote`
+echo "$remote_origin"
+
+if [ "$1"x == "start"x ] ; then
     echo "$1"
 else
     echo -e "\nwe need a github repository as first arg!"
-    exit 1
 fi
+echo `git remote`
