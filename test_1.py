@@ -62,6 +62,8 @@ def test():
         print sess.run(Wx_add_b, feed_dict=d)
         print y_data
 
+tf.app.flags.DEFINE_boolean("use_float32", False, "whether use float32, default not.")
+tf.app.run()
 
 if __name__ == '__main__':
     test()
