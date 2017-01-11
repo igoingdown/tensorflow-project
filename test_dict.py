@@ -66,3 +66,9 @@ s_2 = set(l_2)
 
 s = s_1 | s_2
 print s
+
+s = 1
+e = 2
+print "aaa{0}bbb{1}".format(s, e)
+
+
