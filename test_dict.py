@@ -6,6 +6,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 from time_wrapper import *
+import re
 
 @time_recorder
 def fool(m, n):
@@ -71,4 +72,6 @@ s = 1
 e = 2
 print "aaa{0}bbb{1}".format(s, e)
 
-
+_WORD_SPLIT = re.compile(b"([.,!?\"':;)(])")
+s = _WORD_SPLIT.split("a.b.c!ddd?ccc\"DDDD:mmmm)xxxxx")
+print s

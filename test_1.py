@@ -8,6 +8,7 @@ sys.setdefaultencoding('utf-8')
 
 import tensorflow as tf
 import numpy as np
+import os
 
 x_data = np.random.rand(100)
 y_data = 0.87 * x_data + 0.05
@@ -45,6 +46,8 @@ def train():
             _, loss_val = sess.run([optimizer, loss], feed_dict=d)
             print loss_val
 
+        if not os.path.exists("variables_saved"):
+            os.mkdir("variables_saved")
         saver.save(sess, "variables_saved/variables")
 
         print sess.run(weight)
@@ -55,16 +58,13 @@ def test():
     with tf.Session(graph=graph) as sess:
         d = {xs: x_data}
         saver.restore(sess, "variables_saved/variables")
-
         print sess.run(weight, feed_dict=d)
         print sess.run(bias, feed_dict=d)
-
         print sess.run(Wx_add_b, feed_dict=d)
         print y_data
 
-tf.app.flags.DEFINE_boolean("use_float32", False, "whether use float32, default not.")
-tf.app.run()
 
 if __name__ == '__main__':
+    train()
     test()
 
