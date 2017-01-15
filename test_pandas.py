@@ -1,13 +1,20 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+"""
+===============================================================================
+author: 赵明星
+desc:   学习pandas基本用法。
+===============================================================================
+"""
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 with open("test_file.txt", "w") as f:
     for i in range(10):

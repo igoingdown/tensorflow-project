@@ -1,11 +1,19 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 
+"""
+===============================================================================
+author: 赵明星
+desc:   参考博客实现Python的线程池，并进行简单测试。
+        ref_blog:http://www.open-open.com/home/space-5679-do-blog-id-3247.html
+===============================================================================
+"""
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-# ref_blog:http://www.open-open.com/home/space-5679-do-blog-id-3247.html
+
 
 import Queue
 import threading
@@ -51,8 +59,10 @@ class WorkManager(object):
             self.threads.append(Worker(self.work_queue))
 
     """
-        初始化工作队列,在实际应用中不需要调用这个方法,直接调用add_job向任务队列里添加函数
-        add_job之后调用init_thread_pool,线程就可以自动从任务队列中取任务,直到任务队列中的任务全部完成.
+        初始化工作队列,在实际应用中不需要调用这个方法,
+                直接调用add_job向任务队列里添加函数。
+        add_job之后调用init_thread_pool,线程就可以自动从任务队列中取任务,
+                直到任务队列中的任务全部完成.
     """
     def __init_work_queue(self, jobs_num):
         for i in range(jobs_num):

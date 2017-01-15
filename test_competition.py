@@ -1,5 +1,13 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
+
+"""
+===============================================================================
+author: 赵明星
+desc:   测试tensorflow的基本功能。
+===============================================================================
+"""
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -19,7 +27,8 @@ graph = tf.Graph()
 def add_layer(inputs, in_size, out_size, layer_name, activation_func=None):
     with tf.name_scope(layer_name):
         with tf.name_scope("weight"):
-            weight = tf.Variable(tf.random_normal([in_size, out_size]), name="W")
+            weight = tf.Variable(tf.random_normal([in_size, out_size]),
+                                 name="W")
             tf.histogram_summary(layer_name + "weights", weight)
         with tf.name_scope("bias"):
             bias = tf.Variable(tf.zeros([1, out_size]) + 0.1, name="b")
@@ -49,7 +58,8 @@ with graph.as_default():
 
     with tf.name_scope("loss"):
         # in the competition, we use entropy and softmax
-        loss = tf.reduce_mean(tf.reduce_sum(tf.square(res - ys), 1), name="loss")
+        loss = tf.reduce_mean(tf.reduce_sum(tf.square(res - ys), 1),
+                              name="loss")
 
     with tf.name_scope("train"):
         opt = tf.train.GradientDescentOptimizer(0.1).minimize(loss)

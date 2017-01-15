@@ -2,6 +2,8 @@
 # -*-coding:utf-8 -*-
 
 import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 import multiprocessing
 from multiprocessing import Pool
 import os
@@ -11,8 +13,7 @@ from time_wrapper import *
 import time
 import cPickle
 import re
-reload(sys)
-sys.setdefaultencoding('utf-8')
+
 
 
 @time_recorder

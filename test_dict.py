@@ -1,6 +1,14 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 
+"""
+===============================================================================
+author: 赵明星
+desc:   测试dict的基本功能。
+        实现LCS算法，即最长连续子串算法。
+===============================================================================
+"""
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -55,7 +63,8 @@ def lcs(input_x, input_y):
                     max_index = i + 1 - max_len
     return input_x[max_index:max_index + max_len]
 
-overlap_string = lcs("who's the president of the USA?", "the duck is president")
+overlap_string = lcs("who's the president of the USA?",
+                     "the duck is president")
 print len(overlap_string)
 print overlap_string
 
