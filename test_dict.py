@@ -84,3 +84,13 @@ print "aaa{0}bbb{1}".format(s, e)
 _WORD_SPLIT = re.compile(b"([.,!?\"':;)(])")
 s = _WORD_SPLIT.split("a.b.c!ddd?ccc\"DDDD:mmmm)xxxxx")
 print s
+
+_buckets = [(5, 10), (10, 15), (20, 25), (40, 50)]
+print _buckets
+for i, (source_size, target_size) in enumerate(_buckets):
+    print i, "\t", source_size, "\t", target_size
+
+bucket_sizes = [2, 2, 2, 2]
+buckets_scale = [sum(bucket_sizes[:b + 1]) / float(sum(bucket_sizes)) for b in xrange(len(bucket_sizes))]
+print buckets_scale
+print bucket_sizes[0:1]

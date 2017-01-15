@@ -13,6 +13,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 import numpy as np
+import random
 from time_wrapper import *
 
 x_data = np.linspace(-1, 1, 10)[:, np.newaxis]
@@ -44,3 +45,11 @@ def foo(x, y, z, a):
 if __name__ == '__main__':
     foo(x_data_without_0_teacher, y_data_without_0,
         z_data_without_0, a_data_without_teacher_money_dad_should)
+    random_sample_01 = np.random.random_sample()
+    print random_sample_01
+    two_dim_list = [[1,2], [3, 4], [5, 6, 7]]
+    one_dim_list = [1, 3, 8]
+    print random.choice(two_dim_list)
+    print random.choice(one_dim_list)
+    print [2, 4, 8] + [9, 10]
+    print np.ones(10)
