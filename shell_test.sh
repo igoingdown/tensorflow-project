@@ -21,3 +21,24 @@ else
 fi
 echo `git remote`
 
+arr=("dd" "ee" "ff")
+for s in ${arr[@]}
+do
+    echo "$s"
+done
+
+path_arr=(
+    "/Users/zhaomingxing/PycharmProjects/test_tensor"
+	"/Users/zhaomingxing/IdeaProjects/hello_world/src/package_1"
+	"/Users/zhaomingxing/PycharmProjects/python_demo_and_tool"
+	"/Users/zhaomingxing/Desktop/zmx/leetcode/leetcode_duplicate"
+	"/Users/zhaomingxing/Desktop/zmx/Interesting-Github-Repositories/PythonDataScienceHandbook"
+	"/Users/zhaomingxing/Desktop/zmx/Interesting-Github-Repositories/vczh_toys"
+	"/Users/zhaomingxing/Desktop/zmx/Interesting-Github-Repositories/google-maps-services-java"
+	"/Users/zhaomingxing/Desktop/zmx/MyResume"
+	"/Users/zhaomingxing/PycharmProjects/models"
+	"/Users/zhaomingxing/PycharmProjects/copyNet")
+for path in ${path_arr[@]}
+do
+    echo $path
+done
