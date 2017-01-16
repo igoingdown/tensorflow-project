@@ -14,6 +14,8 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 from time_wrapper import *
+import tensorflow as tf
+import six
 import re
 
 @time_recorder
@@ -94,3 +96,22 @@ bucket_sizes = [2, 2, 2, 2]
 buckets_scale = [sum(bucket_sizes[:b + 1]) / float(sum(bucket_sizes)) for b in xrange(len(bucket_sizes))]
 print buckets_scale
 print bucket_sizes[0:1]
+
+with open("test_dict.txt", "rb") as f:
+    line_list = f.readlines()
+
+print line_list
+print type(line_list[0])
+if isinstance (line_list[0], six.text_type):
+    print "\"{0}\" is text type".format(line_list[0])
+else:
+    print "\"{0}\" is not text type".format(line_list[0])
+
+if isinstance(line_list[0], bytes):
+    print "the line is byte type"
+else:
+    print "the line is not byte type"
+
+byte_lines = [tf.compat.as_bytes(line.strip()) for line in line_list]
+print type(byte_lines[0])
+print byte_lines

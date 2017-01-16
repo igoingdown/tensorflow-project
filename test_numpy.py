@@ -53,3 +53,10 @@ if __name__ == '__main__':
     print random.choice(one_dim_list)
     print [2, 4, 8] + [9, 10]
     print np.ones(10)
+    np_arr_1 = np.arange(12)
+    print "np_arr_1:\n{0}".format(np_arr_1)
+    np_arr_2 = np.reshape(np_arr_1, (3, 4))
+    print "np_arr_2:\n{0}".format(np_arr_2)
+    print np.argmax(np_arr_2)
+    print "first axis max index:\n{0}".format(np.argmax(np_arr_2, axis=0))
+    print "second axis max index:\n{0}".format(np.argmax(np_arr_2, axis=1))

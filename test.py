@@ -57,6 +57,8 @@ with tf.Session(graph=graph) as sess:
 
     print [[1, 2], [3, 4]] * 3
 
+    tf.compat.as_bytes("your are idiot")
+
     # This line won't work.
     # And i don't know why that happens?
-    print sess.run(y, feed_dict={test_np_sparse_data: (indices, data, shape)})
+    # print sess.run(y, feed_dict={test_np_sparse_data: (indices, data, shape)})
