@@ -18,6 +18,7 @@ import numpy as np
 
 xs = np.random.rand(10, 10)
 ys = np.random.rand(10, 10)
+pre_data = np.random.rand(2, 2)
 indices = np.array([[3, 2, 0], [4, 5, 1]], dtype=np.int64)
 data = np.array([3.499, 58493.32], dtype=np.float32)
 shape = np.array([7, 9, 2], dtype=np.int64)
@@ -26,6 +27,10 @@ graph = tf.Graph()
 with graph.as_default():
     x_data = tf.placeholder(tf.float32, [10, 10])
     y_data = tf.placeholder(tf.float32, [10, 10])
+    pre_holder = tf.placeholder(tf.float32, [2, 2])
+    log_probs = tf.nn.log_softmax(pre_holder)
+    class_shape = tf.shape(log_probs)
+    max_idx = tf.arg_max(x_data, 1)
 
     test_np_sparse_data = tf.placeholder(tf.float32)
     y = tf.reduce_sum(test_np_sparse_data)
@@ -37,10 +42,12 @@ with graph.as_default():
     x_and_y_equal = tf.equal(x_max, y_max)
     accuracy = tf.reduce_mean(tf.cast(x_and_y_equal, tf.float32))
 
+    my_range = tf.range(20, name="range")
+
 with tf.Session(graph=graph) as sess:
     print "xs:\n", xs
     print "ys:\n", ys
-    d = {x_data: xs, y_data: ys}
+    d = {x_data: xs, y_data: ys, pre_holder: pre_data}
     print sess.run(res_1, feed_dict=d)
 
     print "\n" * 3
@@ -58,7 +65,17 @@ with tf.Session(graph=graph) as sess:
     print [[1, 2], [3, 4]] * 3
 
     tf.compat.as_bytes("your are idiot")
+    range_list = sess.run(my_range, feed_dict=d)
+    print "test \"//\": {0}".format(range_list // 2)
+    print 10//2
+    print 10.3 // 3
+    print sess.run(max_idx, feed_dict=d)
 
     # This line won't work.
     # And i don't know why that happens?
-    # print sess.run(y, feed_dict={test_np_sparse_data: (indices, data, shape)})
+    # print sess.run(y,
+    #                feed_dict={test_np_sparse_data: (indices, data, shape)})
+
+    print "logsoftmax test res:\n{0}".format(sess.run(log_probs, feed_dict= d))
+    print "pre data:\n{0}".format(pre_data)
+    print "class shape:\n{0}".format(sess.run(class_shape, feed_dict=d))

@@ -115,3 +115,7 @@ else:
 byte_lines = [tf.compat.as_bytes(line.strip()) for line in line_list]
 print type(byte_lines[0])
 print byte_lines
+
+a_list = [[2, 3, 4], [5, 6, 7]]
+print "dddd"
+print a_list[:,1]
