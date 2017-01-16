@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00fb9636-4d47-4ba6-891e-94d97c321702" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_dict.py" afterPath="$PROJECT_DIR$/test_dict.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_numpy.py" afterPath="$PROJECT_DIR$/test_numpy.py" />
-    </list>
+    <list default="true" id="00fb9636-4d47-4ba6-891e-94d97c321702" name="Default" comment="" />
     <ignored path="test_tensor.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
