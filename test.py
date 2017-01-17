@@ -18,7 +18,7 @@ import numpy as np
 
 xs = np.random.rand(10, 10)
 ys = np.random.rand(10, 10)
-pre_data = np.random.rand(2, 2)
+pre_data = np.random.rand(3, 3)
 indices = np.array([[3, 2, 0], [4, 5, 1]], dtype=np.int64)
 data = np.array([3.499, 58493.32], dtype=np.float32)
 shape = np.array([7, 9, 2], dtype=np.int64)
@@ -27,7 +27,8 @@ graph = tf.Graph()
 with graph.as_default():
     x_data = tf.placeholder(tf.float32, [10, 10])
     y_data = tf.placeholder(tf.float32, [10, 10])
-    pre_holder = tf.placeholder(tf.float32, [2, 2])
+    pre_holder = tf.placeholder(tf.float32, [3, 3])
+    pre_topk = tf.nn.top_k(pre_holder, 2)
     log_probs = tf.nn.log_softmax(pre_holder)
     class_shape = tf.shape(log_probs)
     max_idx = tf.arg_max(x_data, 1)
@@ -79,3 +80,4 @@ with tf.Session(graph=graph) as sess:
     print "logsoftmax test res:\n{0}".format(sess.run(log_probs, feed_dict= d))
     print "pre data:\n{0}".format(pre_data)
     print "class shape:\n{0}".format(sess.run(class_shape, feed_dict=d))
+    print "top_k of pre_data:\n{0}".format(sess.run(pre_topk, feed_dict=d))
