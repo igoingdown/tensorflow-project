@@ -25,13 +25,15 @@ shape = np.array([7, 9, 2], dtype=np.int64)
 
 graph = tf.Graph()
 with graph.as_default():
-    x_data = tf.placeholder(tf.float32, [10, 10])
+    x_data = tf.placeholder(tf.float32, [10, 10], name="x")
     y_data = tf.placeholder(tf.float32, [10, 10])
-    pre_holder = tf.placeholder(tf.float32, [3, 3])
+    pre_holder = tf.placeholder(tf.float32, [3, 3], name="pre")
     pre_topk = tf.nn.top_k(pre_holder, 2)
     log_probs = tf.nn.log_softmax(pre_holder)
     class_shape = tf.shape(log_probs)
     max_idx = tf.arg_max(x_data, 1)
+    print "shape: {0}".format(pre_holder.get_shape())
+    print "name: {0}".format(pre_holder.name)
 
     test_np_sparse_data = tf.placeholder(tf.float32)
     y = tf.reduce_sum(test_np_sparse_data)
@@ -44,6 +46,10 @@ with graph.as_default():
     accuracy = tf.reduce_mean(tf.cast(x_and_y_equal, tf.float32))
 
     my_range = tf.range(20, name="range")
+
+    # pre_holder.set_shape([None, 1])
+    print "after shape set: {0}".format(pre_holder.get_shape())
+    print "dtype: {0}".format(pre_holder.dtype)
 
 with tf.Session(graph=graph) as sess:
     print "xs:\n", xs

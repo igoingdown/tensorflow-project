@@ -118,4 +118,7 @@ print byte_lines
 
 a_list = [[2, 3, 4], [5, 6, 7]]
 print "dddd"
-print a_list[:,1]
+print a_list
+
+x = 1 if 1 > 0 else 0
+print "x is: {0}".format(x)
