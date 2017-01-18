@@ -47,7 +47,7 @@ with graph.as_default():
 
     my_range = tf.range(20, name="range")
 
-    # pre_holder.set_shape([None, 1])
+    # pre_holder.set_shape([-1, 1])
     print "after shape set: {0}".format(pre_holder.get_shape())
     print "dtype: {0}".format(pre_holder.dtype)
 
@@ -87,3 +87,37 @@ with tf.Session(graph=graph) as sess:
     print "pre data:\n{0}".format(pre_data)
     print "class shape:\n{0}".format(sess.run(class_shape, feed_dict=d))
     print "top_k of pre_data:\n{0}".format(sess.run(pre_topk, feed_dict=d))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
