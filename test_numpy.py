@@ -60,3 +60,11 @@ if __name__ == '__main__':
     print np.argmax(np_arr_2)
     print "first axis max index:\n{0}".format(np.argmax(np_arr_2, axis=0))
     print "second axis max index:\n{0}".format(np.argmax(np_arr_2, axis=1))
+    train_X = np.linspace(-1, 1, 101)
+    train_Y = 2 * train_X + np.random.randn(*train_X.shape) * 0.33 + 10
+
+    print "train x data is:\n{0}".format(train_X)
+    print "\n\n\n"
+    print "train y data is:\n{0}".format(train_Y)
+
+
