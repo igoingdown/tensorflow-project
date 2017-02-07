@@ -8,21 +8,23 @@ desc:   在分布式环境下实现tensorflow的一个小demo（手写数字识�
 ===============================================================================
 """
 
-import numpy as np
-import tensorflow as tf
-
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
+# ps_hosts和worker_hosts的ip地址并不是固定的，
+# 我在参数设置写死是因为我生成的docker container的ip地址是这样分布的。
+# 端口号可以任意指定，只要是空闲端口号就行。
 tf.app.flags.DEFINE_string("ps_hosts", 
                            "172.17.0.2:2222,172.17.0.3:2222", 
                            "Comma-separated list of hostname:port pairs")
 tf.app.flags.DEFINE_string("worker_hosts", 
                            "172.17.0.4:2222,172.17.0.5:2222", 
                            "Comma-separated list of hostname:port pairs")
+
 tf.app.flags.DEFINE_string("job_name", "", "One of 'ps', 'worker'")
 tf.app.flags.DEFINE_integer("task_index", 0, "Index of task within the job")
 
