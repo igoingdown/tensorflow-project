@@ -87,6 +87,9 @@ with tf.Session(graph=graph) as sess:
     print "pre data:\n{0}".format(pre_data)
     print "class shape:\n{0}".format(sess.run(class_shape, feed_dict=d))
     print "top_k of pre_data:\n{0}".format(sess.run(pre_topk, feed_dict=d))
+    print "\n"*20
+    print np.random.rand(2, 2)
+
 
 
 
