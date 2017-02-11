@@ -14,6 +14,7 @@ sys.setdefaultencoding('utf-8')
 
 import numpy as np
 from sklearn import datasets, linear_model
+import sklearn
 import matplotlib.pyplot as plt
 
 
@@ -40,6 +41,10 @@ if __name__ == "__main__":
     print X, "\n\n\n"
     print y
     plt.scatter(X[:, 0], X[:, 1], s=40, c=y, cmap=plt.cm.Spectral)
+    clf = sklearn.linear_model.LogisticRegressionCV()
+    clf.fit(X, y)
+    plt.plot_decision_boundary(lambda x: clf.predict(x))
+    plt.title("Logistic Regression")
     plt.show()
 
 
