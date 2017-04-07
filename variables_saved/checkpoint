@@ -1,2 +1,2 @@
-model_checkpoint_path: "variables"
-all_model_checkpoint_paths: "variables"
+model_checkpoint_path: "mnist_variables"
+all_model_checkpoint_paths: "mnist_variables"
