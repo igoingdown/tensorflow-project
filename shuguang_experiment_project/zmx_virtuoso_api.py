@@ -112,7 +112,7 @@ if __name__ == '__main__':
     for k, v in alias_dict.iteritems():
         # print k, "\n", v, "\n" * 3
         # print k.strip("/").replace("/", ".") 
-        print sparql_query(k.strip("/").replace("/", "."))
+        print sparql_query_name(k.strip("/").replace("/", "."))
     # sparql_query("m.01_d5")
 
 
