@@ -22,7 +22,8 @@ graph = tf.Graph()
 def add_layer(inputs, in_size, out_size, layer_name, activation_func=None):
     with tf.name_scope(layer_name):
         with tf.name_scope("weight"):
-            weight = tf.Variable(tf.random_normal([in_size, out_size]), name="W")
+            weight = tf.Variable(tf.random_normal([in_size, out_size]),
+                                 name="W")
             tf.summary.histogram(layer_name + "weights", weight)
         with tf.name_scope("bias"):
             bias = tf.Variable(tf.zeros([1, out_size]) + 0.1, name="b")
@@ -49,9 +50,11 @@ with graph.as_default():
         prediction = add_layer(xs, 784, 10, "layer_1", tf.nn.softmax)
 
     with tf.name_scope("loss"):
-        cross_entropy = tf.reduce_mean(tf.reduce_sum(-ys * tf.log(prediction), 1))
+        cross_entropy = tf.reduce_mean(tf.reduce_sum(-ys * tf.log(prediction),
+                                                     1))
         tf.summary.scalar("loss", cross_entropy)
-        # loss = tf.reduce_mean(tf.reduce_sum(tf.square(prediction - ys), 1), name="loss")
+        # loss = tf.reduce_mean(tf.reduce_sum(tf.square(prediction - ys),
+        #   1), name="loss")
 
     with tf.name_scope("train"):
         opt = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
@@ -60,7 +63,9 @@ with graph.as_default():
         init = tf.initialize_all_variables()
 
     with tf.name_scope("accuracy"):
-        correct_prediction = tf.equal(tf.arg_max(prediction, 1), tf.arg_max(ys, 1), name="get_correct_prediction_ratio")
+        correct_prediction = tf.equal(tf.arg_max(prediction, 1),
+                                      tf.arg_max(ys, 1),
+                                      name="get_correct_prediction_ratio")
         accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
         tf.summary.scalar("accuracy", accuracy)
 
