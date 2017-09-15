@@ -13,6 +13,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 import torch
+import torch.nn as N
 import torch.nn.functional as a_function
 import matplotlib.pyplot as plt
 from torch.autograd import Variable
@@ -24,7 +25,6 @@ plt.show()
 
 class Net_1(torch.nn.Module):
     def __init__(self, n_features, n_hidden, n_output):
-        pass
         super(Net_1, self).__init__()
         self.hidden = torch.nn.Linear(n_features, n_hidden)
         self.predict = torch.nn.Linear(n_hidden, 1)
@@ -35,20 +35,30 @@ class Net_1(torch.nn.Module):
         return x
 
 
+
+
+
 def test_regression():
+
+    # generate dataset.
     x = torch.unsqueeze(torch.linspace(-1, 1), dim=1)
+    print x.size
     y = x.pow(2) + 0.2 * torch.rand(x.size())
     x = Variable(x)
     y = Variable(y)
 
+    print x.size()
+
     plt.scatter(x.data.numpy(), y.data.numpy())
     plt.pause(3)
 
-    net = Net_1(1, 10, 1)
+    # net = Net_1(1, 10, 1)
+    # 使用下面的方法可以更快的构建多层的神经网络模型！
+    net = N.Sequential(N.Linear(1, 10), N.ReLU(), N.Linear(10, 1))
     print net
 
     optimizer = torch.optim.SGD(net.parameters(), lr=0.5)
-    loss_func = torch.nn.MSELoss()
+    loss_func = N.MSELoss()
     # 回归问题的loss function用mean square error loss function。
 
     for t in range(100):

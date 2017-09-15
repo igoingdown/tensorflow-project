@@ -28,6 +28,13 @@ def test_variable():
     print variable.grad
     print variable.data
 
+    v2 = Variable(torch.randn(2, 2))
+    t = torch.unsqueeze(v2, 1)
+    # t.backward()
+    # 有些操作会产生梯度，而有些操作不会产生！这其实还是比较好区分的！
+    print v2.grad
+    print v2.data.numpy()
+
 
 if __name__ == "__main__":
     test_variable()
