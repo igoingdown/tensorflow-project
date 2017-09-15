@@ -40,18 +40,18 @@ class Net_1(torch.nn.Module):
 
 def test_regression():
 
-    # generate dataset.
+    # generate data.
     x = torch.unsqueeze(torch.linspace(-1, 1), dim=1)
     print x.size
     y = x.pow(2) + 0.2 * torch.rand(x.size())
     x = Variable(x)
     y = Variable(y)
 
-    print x.size()
-
+    # visualize data
     plt.scatter(x.data.numpy(), y.data.numpy())
     plt.pause(3)
 
+    # 原来构建多层神经网络的方法
     # net = Net_1(1, 10, 1)
     # 使用下面的方法可以更快的构建多层的神经网络模型！
     net = N.Sequential(N.Linear(1, 10), N.ReLU(), N.Linear(10, 1))
