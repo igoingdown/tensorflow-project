@@ -42,7 +42,7 @@ def test_classification():
     x_1 = torch.normal(-2 * n_data, 1)
     y_1 = torch.ones(100)
     x = torch.cat((x_0, x_1), 0).type(torch.FloatTensor)
-    y = torch.cat((y_0, y_1), ).type(torch.LongTensor)
+    y = torch.cat((y_0, y_1), 0).type(torch.LongTensor)
     # print "x.size: ", x.size()
     # print "y.size: ", y.size()
     # print y
@@ -51,7 +51,8 @@ def test_classification():
     plt.scatter(x.data.numpy()[:, 0], x.data.numpy()[:, 1],
                 c=y.data.numpy(), s=100, lw=0, cmap='RdYlGn')
     plt.pause(0.01)
-    net = Net_1(2, 10, 2)
+    # net = Net_1(2, 10, 2)
+    net = torch.nn.Sequential(torch.nn.Linear(2, 10), torch.nn.ReLU(), torch.nn.Linear(10, 2))
     print net
 
     optimizer = torch.optim.SGD(net.parameters(), lr=0.02)
@@ -74,8 +75,8 @@ def test_classification():
             # torch.max(input, dim)返回值为一个含有两个Variable的元组，
             #     存放的分别是dim维度的最大值和该最大值在dim维度的index，
             #     这对于分类问题非常好用！
-            print torch.max(a_function.softmax(out), 1)[0].data.numpy().squeeze(), \
-                torch.max(a_function.softmax(out), 1)[1].data.numpy().squeeze()
+
+            tmp = a_function.softmax(out)
             prediction = torch.max(a_function.softmax(out), 1)[1]
             prediction_y = prediction.data.numpy().squeeze()
             target_y = y.data.numpy()
