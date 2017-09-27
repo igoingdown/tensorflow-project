@@ -19,13 +19,41 @@ from torch.autograd import Variable
 
 def foo():
 
-    n_data = torch.ones(10, 2)
-    print n_data.size()
-    pass
+    # x = Variable(torch.randn(2, 3))
+    # m = torch.nn.Softmax()
+    # print x
+    # print m(x)
+    # print torch.max(m(x), 1)
+    # print x.data.contiguous()
 
-    x0 = torch.normal(2 * n_data, 1)
-    print x0
+    # y = torch.randn(3, 2)
+    # print y
+    # print(y.stride(), y.is_contiguous())
+    #
+    # print "-" * 100
+    # try:
+    #     print y.t().is_contiguous()
+    # except Exception :
+    #     print "aa"
+    #
+    # y.view(2, 3)  # ok
 
+    # x = torch.randn(2, 3)
+    # print x
+    # for t in torch.chunk(x, 2):
+    #     print t
+    # print torch.chunk(x, 3, 1)
+    # print '-' * 100
+    # print torch.split(x, 4, 1)
+    # pass
+
+    # x = torch.FloatTensor([1, 2 , 3])
+    # print x
+    # print torch.unsqueeze(x, 0)
+    # print torch.get_num_threads()
+
+    x = torch.range(1, 5)
+    print torch.tan(x)
 
 
 if __name__ == '__main__':
