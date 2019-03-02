@@ -11,7 +11,7 @@ import os, time, random
 def long_time_task(name):
     print 'Run task %s (%s)...' % (name, os.getpid())
     start = time.time()
-    res = 1;
+    res = 1
     for x in range(10000000):
         res += 2
     time.sleep(random.random() * 3)

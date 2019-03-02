@@ -52,10 +52,17 @@ def foo():
     # print torch.unsqueeze(x, 0)
     # print torch.get_num_threads()
 
-    x = torch.range(1, 5)
-    print torch.tan(x)
-
-
+    x = torch.range(1, 6).view(2, 3)
+    print x
+    print torch.topk(x, 2, 1)
+    print torch.diag(x, -1)
+    print x.index(1)
+    print x.stride()
+    print torch.randn(4, 5, 6).stride()
+    print x.storage()
+    print dir(x.storage())
+    print x.storage().is_pinned()
+    print x.storage().data_ptr()
 if __name__ == '__main__':
     foo()
 

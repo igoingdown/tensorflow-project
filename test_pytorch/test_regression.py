@@ -67,9 +67,11 @@ def test_regression():
 
         # TODO: 先将网络中上一步用于更新参数的梯度全部置零，
         #       进行本步的反向传播，计算本步的梯度，更新参数。
+        print("before update: {0}".format(next(net.parameters()).data))
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        print("after update: {0}".format(next(net.parameters()).data))
 
         if t % 5 == 0:
             plt.cla()
